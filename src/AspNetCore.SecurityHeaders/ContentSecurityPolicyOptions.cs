@@ -1,6 +1,5 @@
 ﻿namespace AspNetCore.SecurityHeaders
 {
-	using System;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -47,7 +46,6 @@
 			this.FormAction = new FetchDirectiveOptions();
 			this.FrameAncestors = new FetchDirectiveOptions();
 			this.NavigateTo = new FetchDirectiveOptions();
-			this.ReportUri = new FetchDirectiveOptions();
 			this.ReportTo = new FetchDirectiveOptions();
 			this.RequireTrustedTypesFor = new FetchDirectiveOptions();
 			this.TrustedTypes = new FetchDirectiveOptions();
@@ -229,15 +227,6 @@
 		///     See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/navigate-to
 		/// </remarks>
 		public FetchDirectiveOptions NavigateTo { get; set; }
-
-		/// <summary>
-		///     Gets the 'report-uri' directive.
-		/// </summary>
-		/// <remarks>
-		///     See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/report-uri
-		/// </remarks>
-		[Obsolete("Deprecated: This feature is no longer recommended. The 'report-to' directive is intended to replace the deprecated 'report-uri' directive.")]
-		public FetchDirectiveOptions ReportUri { get; set; }
 
 		/// <summary>
 		///     Gets the 'report-to' directive.

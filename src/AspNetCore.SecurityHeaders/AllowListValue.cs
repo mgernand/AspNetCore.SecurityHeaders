@@ -7,6 +7,7 @@
 	/// </summary>
 	/// <remarks>
 	///     See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
+	///     See: https://developer.chrome.com/docs/privacy-sandbox/permissions-policy/
 	/// </remarks>
 	[PublicAPI]
 	public enum AllowListValue

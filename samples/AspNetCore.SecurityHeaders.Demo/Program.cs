@@ -5,7 +5,11 @@ namespace AspNetCore.SecurityHeaders.Demo
 		public static void Main(string[] args)
 		{
 			WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-			builder.Services.AddSecurityHeaders();
+			builder.Services.AddSecurityHeaders(options =>
+			{
+				options.PermissionsPolicy.Accelerometer.Value = AllowListValue.Self;
+				options.PermissionsPolicy.Accelerometer.WriteEnabled = true;
+			});
 
 			WebApplication app = builder.Build();
 			app.UseSecurityHeaders();

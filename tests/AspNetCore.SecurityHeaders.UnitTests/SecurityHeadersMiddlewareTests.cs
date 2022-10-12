@@ -66,7 +66,6 @@
 
 		public static IEnumerable<object[]> TestCasesPermissionsPolicy()
 		{
-			yield return new object[] { new PermissionsPolicyOptions(), "", true };
 			yield return new object[] { new PermissionsPolicyOptions(), null, false };
 
 			yield return new object[]
@@ -149,6 +148,19 @@
 				"accelerometer=(self), camera=(), payment=*",
 				true
 			};
+		}
+
+		[Test]
+		public async Task ShouldNotWritePermissionsPolicyHeaderPerDefault()
+		{
+			using(HttpClient httpClient = this.CreateHttpClient())
+			{
+				HttpResponseMessage response = await httpClient.GetAsync("");
+
+				response.Should().HaveStatusCode(HttpStatusCode.OK);
+
+				response.Headers.Should().NotContainKey("Permissions-Policy");
+			}
 		}
 
 		[Test]
